@@ -1,0 +1,46 @@
+{
+  "food": [
+    {
+      "name": "Fish sticks",
+      "category": "seafood",
+      "ethnicity": "smelly",
+      "id": 1,
+      "barcode": "7610849539062"
+    },
+    {
+      "id": 2,
+      "name": "Massaman curry",
+      "category": "curry",
+      "ethnicity": "thai",
+      "barcode": "8854404000829"
+    },
+    {
+      "id": 4,
+      "name": "Ravioli Funghi",
+      "category": "pasta",
+      "ethnicity": "italian",
+      "barcode": "5400101059634"
+    },
+    {
+      "id": 5,
+      "name": "Tuscan Soup",
+      "category": "vegetarian",
+      "ethnicity": "italian",
+      "barcode": "5000169116562"
+    },
+    {
+      "name": "Cheerios",
+      "category": "cereal",
+      "ethnicity": "'murcan",
+      "id": 6,
+      "barcode": "0016000275287"
+    },
+    {
+      "name": "Oreos",
+      "category": "cookies",
+      "ethnicity": "'murcan",
+      "id": 7,
+      "barcode": "0044000007492"
+    }
+  ]
+}
