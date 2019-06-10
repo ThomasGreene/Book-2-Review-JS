@@ -1,26 +1,28 @@
 function getMyFood() {
-  fetch("http://localhost:8088/food")
-  .then( data => data.json())
+  getLocalFood()
   .then( foodData => {
     console.log(foodData)
     foodData.forEach( foodItem => {
-      fetch(`https://world.openfoodfacts.org/api/v0/product/${foodItem.barcode}.json`)
-      .then( foodFromAPI => foodFromAPI.json())
+      getAPIFood(foodItem.barcode)
       .then( foodItemFromAPI => {
         if (foodItemFromAPI.product.ingredients_text) {
           foodItem.ingredients = foodItemFromAPI.product.ingredients_text
         } else {
           foodItem.ingredients = "ingredients not listed"
         }
-        document.querySelector("#food-list").innerHTML += createFoodComponent(foodItem)
+        addFoodCompontentToDom(createFoodComponent(foodItem), "food-list")
       })
     })
   })
 }
 
-function createFoodComponent(foodObj) {
-  return `
-    <h2>${foodObj.name}</h2>
-    <p><strong>ingredients:</strong> ${foodObj.ingredients}</p>
-  `
+// Both functions return a Promise object
+function getLocalFood() {
+  return fetch("http://localhost:8088/food")
+  .then( data => data.json())
+}
+
+function getAPIFood(barcode) {
+  return fetch(`https://world.openfoodfacts.org/api/v0/product/${barcode}.json`)
+  .then( foodFromAPI => foodFromAPI.json())
 }
